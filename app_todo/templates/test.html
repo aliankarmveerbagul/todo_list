@@ -1,0 +1,41 @@
+ <form method="POST" >
+            {% csrf_token %}
+            <label>Task Number</label>     <input type="text" value="{{read.s_no}}" > <br/> <br>
+
+            <label>Task Number</label>     <input type="text" value="{{read.task_name}} "> <br/> <br>
+
+            <label>Task Status</label>         <input type="text" value= "{{read.task_status}}"> <br/> <br>
+
+
+             <button type="submit"  action="/update/{{read.s_no}}">Update</button>
+<form>
+
+    def edit(request, id):
+    employee = Employee.objects.get(id=id)
+    return render(request,'edit.html', {'employee':employee})
+
+
+def update(request, id):
+    employee = Employee.objects.get(id=id)
+    form = EmployeeForm(request.POST, instance = employee)
+    if form.is_valid():
+        form.save()
+        return redirect("employee:shows")
+    return render(request, 'edit.html', {'employee': employee})
+
+   <body>
+        <h1>Update  Tasks</h1>
+         <form method="POST" action="/update/{{read.task_name}}">
+            {% csrf_token %}
+            <label>Task Number</label>     <input type="text" value="{{read.s_no}}" > <br/> <br>
+
+            <label>Task Number</label>     <input type="text" value="{{read.task_name}} "> <br/> <br>
+
+            <label>Task Status</label>         <input type="text" value= "{{read.task_status}}"> <br/> <br>
+
+
+             <button type="submit"  >Update</button>
+
+     </form>
+
+    </body>

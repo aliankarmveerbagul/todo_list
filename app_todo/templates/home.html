@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To</title>
+</head>
+    <body>
+        <h1>Todo Tasks</h1>
+        {% csrf_token %}
+
+        {% for i in read %}
+            {{i.s_no}}
+
+            {{i.task_name}}
+
+            {{i.task_status}}
+
+            <a href="{% url 'app_todo:update' id=i.s_no  %}">Modify </a>
+
+            <a href="{% url 'app_todo:del'    id=i.s_no %}"> Complete </a>
+            <br/> <br>
+
+        {% endfor %}
+        <a href="{% url 'app_todo:create'%}"> Add more Task</a>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update </title>
+</head>
+    <body>
+        <h1>Update  Tasks</h1>
+        <form  method="POST">
+
+            {% csrf_token %}
+
+            {{ read }}
+
+            <button type="submit" action="{% url 'app_todo:update' id=abc.s_no  %}" >Update</button>
+     </form>
+
+    </body>
+</html>

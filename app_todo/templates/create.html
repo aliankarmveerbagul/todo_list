@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Add Tasks</h1>
+    <form method="POST" >
+        {% csrf_token %}
+        <label>Task Number</label>     {{create.s_no}}  <br/> <br>
+
+        <label>Task Number</label>      {{create.task_name}}  <br/> <br>
+
+        <label>Task Status</label>          {{create.task_status}} <br/> <br>
+
+        <button type="submit" action="{% url 'app_todo:create' %}">Submit</button>
+
+    </form>
+<!--          <button type="submit" action="{% url 'app_todo:home' %}">Back</button>-->
+</body>
+</html>
